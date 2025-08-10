@@ -42,6 +42,24 @@
         nav button:hover {
             background-color: #0059b3; /* Azul mais claro no hover */
         }
+        section {
+            padding: 20px;
+            text-align: center;
+            color: #000;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #002b5c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -51,10 +69,41 @@
         <p>Rua Padre Medeiros Nº56, Exu - PE</p>
     </header>
 
+    <!-- Google Tradutor -->
+    <div id="google_translate_element" style="text-align:center; margin: 10px;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'pt', includedLanguages: 'en,es,fr,it,de', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <nav>
         <button onclick="abrirMenu()">Menu</button>
         <button onclick="abrirChat()">Chat</button>
+        <button onclick="abrirAnuncios()">Anúncios</button>
     </nav>
+
+    <section>
+        <h2>Localização</h2>
+        <!-- Google Maps -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.6294720739726!2d-39.723!3d-7.514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7a0b5f4d!2sRua%20Padre%20Medeiros%2056%2C%20Exu%20-%20PE!5e0!3m2!1spt-BR!2sbr!4v0000000000000" 
+            allowfullscreen="" loading="lazy">
+        </iframe>
+    </section>
+
+    <section id="anuncios" style="display:none;">
+        <h2>Página de Anúncios</h2>
+        <p>Aqui você pode colocar imagens e descrições de anúncios.</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Galeria Digital - Todos os direitos reservados
+    </footer>
 
     <script>
         function abrirMenu() {
@@ -62,6 +111,10 @@
         }
         function abrirChat() {
             alert("Chat em breve disponível!");
+        }
+        function abrirAnuncios() {
+            document.getElementById("anuncios").style.display = "block";
+            window.scrollTo({ top: document.getElementById("anuncios").offsetTop, behavior: 'smooth' });
         }
     </script>
 
